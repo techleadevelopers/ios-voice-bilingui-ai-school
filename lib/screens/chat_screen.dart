@@ -5,6 +5,7 @@ import '../theme/bilingui_theme.dart';
 import '../models/chat_message.dart';
 import '../providers/app_providers.dart';
 import '../widgets/chat_bubble.dart';
+import '../services/api_service.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
   const ChatScreen({super.key});
@@ -16,10 +17,14 @@ class ChatScreen extends ConsumerStatefulWidget {
 class _ChatScreenState extends ConsumerState<ChatScreen> {
   final _messageController = TextEditingController();
   final _scrollController = ScrollController();
+  bool _isSending = false;
+  final ApiService _api = ApiService();
 
-  void _sendMessage() {
+  Future<void> _sendMessage() async {
     final text = _messageController.text.trim();
     if (text.isEmpty) return;
+    if (_isSending) return;
+    setState(() => _isSending = true);
 
     ref.read(chatMessagesProvider.notifier).addMessage(
       ChatMessage(
@@ -34,32 +39,35 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
 
     ref.read(chatMessagesProvider.notifier).setTyping(true);
 
-    Future.delayed(const Duration(milliseconds: 1500), () {
+    try {
+      final aiText = await _api.sendChatMessage(text);
+      if (!mounted) return;
+      ref.read(chatMessagesProvider.notifier).setTyping(false);
+      ref.read(chatMessagesProvider.notifier).addMessage(
+        ChatMessage(
+          id: (DateTime.now().millisecondsSinceEpoch + 1).toString(),
+          text: aiText,
+          isUser: false,
+          timestamp: DateTime.now(),
+        ),
+      );
+    } catch (e) {
       if (mounted) {
         ref.read(chatMessagesProvider.notifier).setTyping(false);
         ref.read(chatMessagesProvider.notifier).addMessage(
           ChatMessage(
-            id: (DateTime.now().millisecondsSinceEpoch + 1).toString(),
-            text: _getAiResponse(text),
+            id: (DateTime.now().millisecondsSinceEpoch + 2).toString(),
+            text: 'Erro ao conectar ao tutor de IA. Tente novamente.',
             isUser: false,
             timestamp: DateTime.now(),
           ),
         );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isSending = false);
         _scrollToBottom();
       }
-    });
-  }
-
-  String _getAiResponse(String input) {
-    final lower = input.toLowerCase();
-    if (lower.contains('hello') || lower.contains('hi')) {
-      return 'Hello! Great to see you practicing. What would you like to work on today? We can practice grammar, vocabulary, or conversation skills.';
-    } else if (lower.contains('grammar')) {
-      return 'Let\'s work on grammar! Here\'s a tip: In English, the subject always comes before the verb in declarative sentences. For example: "She reads books" not "Reads she books". Want to try some exercises?';
-    } else if (lower.contains('vocabulary') || lower.contains('word')) {
-      return 'Building vocabulary is key! Here are 3 useful words for today:\n\n1. Resilient - able to recover quickly\n2. Eloquent - fluent and persuasive in speaking\n3. Pragmatic - dealing with things realistically\n\nTry using one in a sentence!';
-    } else {
-      return 'That\'s a great question! Let me help you practice. Try rephrasing your sentence using more formal language. Remember, practice makes perfect! Would you like me to give you a specific exercise?';
     }
   }
 
@@ -209,7 +217,16 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                       gradient: BilinguiColors.primaryGradient,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.send, color: Colors.white, size: 22),
+                    child: _isSending
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2.4,
+                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                            ),
+                          )
+                        : const Icon(Icons.send, color: Colors.white, size: 22),
                   ),
                 ),
               ],
