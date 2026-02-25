@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilingui-AI — UI Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#E0C3FC 0%,#D1B3F0 50%,#C5A3E8 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 20px 30px;overflow-x:auto;}
+
+.header{display:flex;align-items:center;gap:14px;margin:40px 0 28px;}
+.page-logo{width:52px;height:52px;}
+.page-logo img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(106,17,203,.3));}
+h1.page-title{font-size:30px;font-weight:800;color:#1A1032;letter-spacing:-.5px;}
+.page-divider{width:1.5px;height:28px;background:rgba(106,17,203,.2);margin:0 4px;}
+p.page-sub{font-size:15px;color:#6E5B8A;font-weight:500;}
+
+.top-flags{display:flex;gap:10px;margin-top:-50px;}
+.tf{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:10px;background:rgba(255,255,255,.55);border:1px solid rgba(224,195,252,.35);}
+.tf img{width:24px;height:16px;border-radius:2px;object-fit:cover;display:block;}
+.tf span{font-size:11px;font-weight:600;color:#6E5B8A;}
+
+.mockups{display:flex;justify-content:center;align-items:center;gap:84px;flex-wrap:nowrap;flex:1;}
+.mock-col{display:flex;flex-direction:column;align-items:center;gap:24px;flex-shrink:0;}
+.mock-label{font-size:13px;font-weight:600;color:#4A148C;background:rgba(255,255,255,.5);padding:6px 16px;border-radius:20px;letter-spacing:.5px;}
+.mock-num{font-size:10px;color:#6E5B8A;font-weight:400;}
+
+.phone{width:260px;height:564px;background:#f8f0ff;border-radius:36px;box-shadow:0 20px 60px rgba(106,17,203,.2),0 0 0 8px #1a1032,0 0 0 10px #2d1b69;position:relative;overflow:hidden;flex-shrink:0;}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100px;height:22px;background:#1a1032;border-radius:0 0 14px 14px;z-index:10;}
+.phone-home{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:90px;height:4px;background:#1a1032;border-radius:2px;z-index:10;}
+
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;}
+
+.grad-bg{background:linear-gradient(180deg,#1A1032,#2D1B69);}
+.lilac-bg{background:linear-gradient(180deg,#E8D5F5,#D1B3F0,#B794E6);}
+.light-bg{background:linear-gradient(180deg,#F8F0FF,#EDE7F6);}
+
+.card{background:rgba(255,255,255,.55);border-radius:16px;border:1px solid rgba(224,195,252,.3);box-shadow:0 2px 10px rgba(106,17,203,.05);}
+
+/* ====== 1. WELCOME ====== */
+.welcome{justify-content:center;align-items:center;gap:12px;}
+.welcome .logo-w{width:80px;height:80px;animation:breathe 2s ease-in-out infinite alternate;filter:drop-shadow(0 0 20px rgba(179,136,255,.5));}
+.welcome .logo-w img{width:100%;height:100%;object-fit:contain;}
+@keyframes breathe{0%{transform:scale(.95)}100%{transform:scale(1.05)}}
+.welcome h2{font-size:22px;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:-.5px;}
+.welcome .slogan{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:3px;font-weight:300;}
+.welcome .btn-start{margin-top:28px;width:150px;background:linear-gradient(135deg,#B388FF,#CE93D8);color:#4A148C;border:none;border-radius:24px;padding:10px 24px;font-family:'Poppins',sans-serif;font-weight:600;font-size:12px;cursor:pointer;box-shadow:0 6px 18px rgba(179,136,255,.35);}
+
+/* ====== 2. LOGIN ====== */
+.login{justify-content:center;align-items:center;padding:30px 20px;}
+.login .logo-s{width:56px;height:56px;margin-bottom:8px;}
+.login h2{font-size:18px;font-weight:700;color:#6A11CB;margin-bottom:2px;}
+.login .sub{font-size:11px;color:#6E5B8A;margin-bottom:22px;}
+.inp-g{width:100%;margin-bottom:10px;}
+.inp-w{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.55);border:1px solid rgba(106,17,203,.12);border-radius:12px;padding:10px 14px;}
+.inp-w svg{width:16px;height:16px;color:#6A11CB;opacity:.5;flex-shrink:0;}
+.inp-w input{border:none;background:none;outline:none;font-family:'Poppins',sans-serif;font-size:11px;color:#1A1032;width:100%;}
+.inp-w input::placeholder{color:#6E5B8A;opacity:.6;}
+.btn-enter{margin-top:14px;background:linear-gradient(135deg,#B388FF,#CE93D8,#E1BEE7);color:#4A148C;border:none;border-radius:12px;padding:11px;font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;cursor:pointer;width:100%;box-shadow:0 4px 14px rgba(179,136,255,.3);}
+.login .toggle{margin-top:14px;font-size:10px;color:#6E5B8A;}
+.login .toggle span{color:#6A11CB;font-weight:600;}
+
+/* ====== 3. DASHBOARD ====== */
+.dashboard{padding:34px 12px 0;overflow-y:auto;}
+.dashboard::-webkit-scrollbar{display:none;}
+.dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.dh h3{font-size:14px;font-weight:700;color:#1A1032;}
+.dh .dsub{font-size:9px;color:#6E5B8A;}
+.notif{width:28px;height:28px;background:linear-gradient(135deg,#6A11CB,#2575FC);border-radius:8px;display:flex;align-items:center;justify-content:center;border:none;}
+.notif svg{width:14px;height:14px;color:#fff;}
+
+.xp-c{padding:10px 12px;margin-bottom:10px;}
+.xp-t{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.xp-t .l{font-size:10px;font-weight:600;color:#6A11CB;}
+.xp-t .x{font-size:8px;color:#6E5B8A;}
+.xp-tr{height:6px;background:rgba(224,195,252,.3);border-radius:3px;overflow:hidden;}
+.xp-f{height:100%;background:linear-gradient(90deg,#6A11CB,#2575FC);border-radius:3px;width:65%;}
+
+.fl-r{display:flex;gap:6px;margin-bottom:12px;padding:2px 0;}
+.fl-c{display:inline-flex;align-items:center;gap:4px;padding:4px 7px;border-radius:8px;background:rgba(255,255,255,.65);border:1.5px solid rgba(224,195,252,.35);flex-shrink:0;}
+.fl-c.active{background:rgba(106,17,203,.1);border-color:rgba(106,17,203,.4);}
+.fl-c img{width:20px;height:14px;border-radius:2px;object-fit:cover;display:block;flex-shrink:0;}
+.fl-c span{font-size:8px;font-weight:600;color:#6E5B8A;line-height:1;white-space:nowrap;}
+.fl-c.active span{color:#6A11CB;font-weight:700;}
+
+.rng-c{padding:12px;margin-bottom:10px;text-align:center;}
+.rng-c h4{font-size:11px;font-weight:600;color:#1A1032;margin-bottom:8px;}
+.rng-svg{width:120px;height:120px;margin:0 auto 6px;}
+.leg{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
+.leg-i{display:flex;align-items:center;gap:3px;font-size:7px;color:#6E5B8A;background:rgba(255,255,255,.5);padding:2px 6px;border-radius:6px;}
+.leg-d{width:6px;height:6px;border-radius:50%;}
+
+.lt{font-size:12px;font-weight:600;color:#1A1032;margin-bottom:8px;}
+.lc{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:8px;}
+.li{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#6A11CB,#2575FC);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.li svg{width:14px;height:14px;color:#fff;}
+.linf{flex:1;}
+.linf h5{font-size:10px;font-weight:600;color:#1A1032;}
+.linf p{font-size:8px;color:#6E5B8A;}
+.lb{font-size:7px;font-weight:600;color:#6A11CB;background:rgba(106,17,203,.08);padding:2px 6px;border-radius:6px;}
+
+/* ====== 4. VOICE ====== */
+.voice{padding:34px 16px 60px;justify-content:center;align-items:center;gap:14px;}
+.voice h3{font-size:14px;font-weight:600;color:#1A1032;}
+.vc{padding:20px 16px;text-align:center;width:100%;}
+.vc .vl{font-size:8px;color:#6E5B8A;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.vc .vp{font-size:15px;font-weight:600;color:#1A1032;margin-bottom:4px;line-height:1.4;}
+.vc .vt{font-size:10px;color:#6E5B8A;font-style:italic;}
+.wv{display:flex;align-items:center;justify-content:center;gap:2px;height:36px;}
+.wb{width:2.5px;border-radius:2px;background:linear-gradient(180deg,#6A11CB,#B388FF);animation:wave 1.2s ease-in-out infinite;}
+.wb:nth-child(1){height:10px;animation-delay:0s;}
+.wb:nth-child(2){height:18px;animation-delay:.1s;}
+.wb:nth-child(3){height:26px;animation-delay:.2s;}
+.wb:nth-child(4){height:34px;animation-delay:.3s;}
+.wb:nth-child(5){height:26px;animation-delay:.4s;}
+.wb:nth-child(6){height:18px;animation-delay:.5s;}
+.wb:nth-child(7){height:10px;animation-delay:.6s;}
+.wb:nth-child(8){height:22px;animation-delay:.7s;}
+.wb:nth-child(9){height:30px;animation-delay:.8s;}
+.wb:nth-child(10){height:14px;animation-delay:.9s;}
+@keyframes wave{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+.mic{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#6A11CB,#2575FC);border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(106,17,203,.4);}
+.mic svg{width:22px;height:22px;color:#fff;}
+.vh{font-size:9px;color:#6E5B8A;}
+
+/* ====== 5. PROFILE ====== */
+.profile{padding:34px 14px 60px;overflow-y:auto;}
+.profile::-webkit-scrollbar{display:none;}
+.ph{text-align:center;margin-bottom:16px;}
+.av{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#6A11CB,#2575FC);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;box-shadow:0 6px 16px rgba(106,17,203,.3);}
+.av svg{width:24px;height:24px;color:#fff;}
+.ph h3{font-size:14px;font-weight:600;color:#1A1032;}
+.ph p{font-size:9px;color:#6E5B8A;}
+
+.sr{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:8px;}
+.si{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,#6A11CB,#2575FC);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.si svg{width:14px;height:14px;color:#fff;}
+.sinf{flex:1;font-size:10px;color:#6E5B8A;}
+.sv{font-size:12px;font-weight:600;color:#1A1032;}
+
+/* ====== BOTTOM NAV ====== */
+.bnav{position:absolute;bottom:0;left:0;right:0;height:48px;background:#fff;display:flex;align-items:center;justify-content:space-around;padding-bottom:6px;z-index:50;box-shadow:0 -2px 12px rgba(106,17,203,.06);}
+.ni{display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 8px;border-radius:8px;}
+.ni svg{width:16px;height:16px;color:#6E5B8A;}
+.ni span{font-size:7px;color:#6E5B8A;font-weight:500;}
+.ni.act svg{color:#6A11CB;}
+.ni.act span{color:#6A11CB;font-weight:600;}
+.ni.act{background:rgba(224,195,252,.25);}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="page-logo"><img src="logo.png" alt="Bilingui-AI"></div>
+  <h1 class="page-title">Bilingui-AI</h1>
+  <div class="page-divider"></div>
+  <p class="page-sub">UI Mockup — 5 Screens</p>
+</div>
+
+<div class="mockups">
+
+<!-- ========== 1. WELCOME ========== -->
+<div class="mock-col">
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-home"></div>
+    <div class="scr grad-bg welcome">
+      <div class="logo-w">
+        <img src="logo.png" alt="Bilingui-AI Logo">
+      </div>
+      <h2>Bilingui-AI</h2>
+      <p class="slogan">LEARN. SPEAK. MASTER.</p>
+      <button class="btn-start">Começar</button>
+    </div>
+  </div>
+  <span class="mock-label"><span class="mock-num">01 — </span>Welcome</span>
+</div>
+
+<!-- ========== 2. LOGIN ========== -->
+<div class="mock-col">
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-home"></div>
+    <div class="scr lilac-bg login">
+      <div class="logo-s">
+        <img src="logo.png" alt="Bilingui-AI Logo" style="width:100%;height:100%;object-fit:contain;">
+      </div>
+      <h2>Bilingui-AI</h2>
+      <p class="sub">Bem-vindo de volta!</p>
+      <div class="inp-g"><div class="inp-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 7l10 7 10-7"/></svg><input type="email" placeholder="E-mail"></div></div>
+      <div class="inp-g"><div class="inp-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><input type="password" placeholder="Senha"></div></div>
+      <button class="btn-enter">Entrar</button>
+      <p class="toggle">Não tem conta? <span>Cadastrar</span></p>
+    </div>
+  </div>
+  <span class="mock-label"><span class="mock-num">02 — </span>Login</span>
+</div>
+
+<!-- ========== 3. DASHBOARD ========== -->
+<div class="mock-col">
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-home"></div>
+    <div class="scr light-bg dashboard">
+      <div class="dh">
+        <div><h3>Hello, Learner!</h3><span class="dsub">Ready for today's lesson?</span></div>
+        <button class="notif"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></button>
+      </div>
+      <div class="card xp-c"><div class="xp-t"><span class="l">Level 7</span><span class="x">1,250 / 2,000 XP</span></div><div class="xp-tr"><div class="xp-f"></div></div></div>
+      <div class="fl-r">
+        <div class="fl-c active"><img src="https://flagcdn.com/w80/us.png" alt="US"><span>EN</span></div>
+        <div class="fl-c"><img src="https://flagcdn.com/w80/de.png" alt="DE"><span>DE</span></div>
+        <div class="fl-c"><img src="https://flagcdn.com/w80/fr.png" alt="FR"><span>FR</span></div>
+        <div class="fl-c"><img src="https://flagcdn.com/w80/es.png" alt="ES"><span>ES</span></div>
+        <div class="fl-c"><img src="https://flagcdn.com/w80/it.png" alt="IT"><span>IT</span></div>
+        <div class="fl-c"><img src="https://flagcdn.com/w80/jp.png" alt="JP"><span>JP</span></div>
+      </div>
+      <div class="card rng-c">
+        <h4>Skill Overview</h4>
+        <svg class="rng-svg" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#E0C3FC" stroke-width="8" opacity=".3"/>
+          <circle cx="100" cy="100" r="90" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-dasharray="396" stroke-dashoffset="119" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="#D1A8F0" stroke-width="8" opacity=".2"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="url(#g2)" stroke-width="8" stroke-linecap="round" stroke-dasharray="334" stroke-dashoffset="50" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="62" fill="none" stroke="#C490E8" stroke-width="8" opacity=".2"/>
+          <circle cx="100" cy="100" r="62" fill="none" stroke="url(#g3)" stroke-width="8" stroke-linecap="round" stroke-dasharray="272" stroke-dashoffset="109" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="48" fill="none" stroke="#B878E0" stroke-width="8" opacity=".2"/>
+          <circle cx="100" cy="100" r="48" fill="none" stroke="url(#g4)" stroke-width="8" stroke-linecap="round" stroke-dasharray="211" stroke-dashoffset="53" transform="rotate(-90 100 100)"/>
+          <text x="100" y="96" text-anchor="middle" font-family="Poppins" font-size="18" font-weight="700" fill="#6A11CB">Level 7</text>
+          <text x="100" y="114" text-anchor="middle" font-family="Poppins" font-size="10" fill="#6E5B8A">Explorer</text>
+          <defs>
+            <linearGradient id="g1"><stop offset="0%" stop-color="#6A11CB"/><stop offset="100%" stop-color="#9B59E0"/></linearGradient>
+            <linearGradient id="g2"><stop offset="0%" stop-color="#7B2FDB"/><stop offset="100%" stop-color="#AB6FEF"/></linearGradient>
+            <linearGradient id="g3"><stop offset="0%" stop-color="#8E44EC"/><stop offset="100%" stop-color="#BE8AF5"/></linearGradient>
+            <linearGradient id="g4"><stop offset="0%" stop-color="#A35BF0"/><stop offset="100%" stop-color="#CFA5F8"/></linearGradient>
+          </defs>
+        </svg>
+        <div class="leg">
+          <div class="leg-i"><div class="leg-d" style="background:#6A11CB"></div>Speaking</div>
+          <div class="leg-i"><div class="leg-d" style="background:#7B2FDB"></div>Reading</div>
+          <div class="leg-i"><div class="leg-d" style="background:#8E44EC"></div>Grammar</div>
+          <div class="leg-i"><div class="leg-d" style="background:#A35BF0"></div>Listening</div>
+        </div>
+      </div>
+      <h4 class="lt">Lessons</h4>
+      <div class="card lc"><div class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="linf"><h5>Greetings</h5><p>Basic introductions</p></div><span class="lb">Beginner</span></div>
+      <div class="card lc"><div class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div class="linf"><h5>Daily Routine</h5><p>Daily activities</p></div><span class="lb">Beginner</span></div>
+      <div class="card lc"><div class="li"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 3v18"/></svg></div><div class="linf"><h5>Food & Drinks</h5><p>At a restaurant</p></div><span class="lb">Beginner</span></div>
+      <div style="height:56px"></div>
+      <div class="bnav">
+        <div class="ni act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Home</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg><span>Voice</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>Chat</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+      </div>
+    </div>
+  </div>
+  <span class="mock-label"><span class="mock-num">03 — </span>Dashboard</span>
+</div>
+
+<!-- ========== 4. VOICE PRACTICE ========== -->
+<div class="mock-col">
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-home"></div>
+    <div class="scr light-bg voice">
+      <h3>Voice Practice</h3>
+      <div class="card vc">
+        <p class="vl">English — Beginner</p>
+        <p class="vp">"How are you doing today?"</p>
+        <p class="vt">Como você está hoje?</p>
+      </div>
+      <div class="wv">
+        <div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div>
+        <div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div><div class="wb"></div>
+      </div>
+      <button class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></button>
+      <p class="vh">Toque para gravar sua pronúncia</p>
+      <div class="bnav">
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Home</span></div>
+        <div class="ni act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg><span>Voice</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>Chat</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+      </div>
+    </div>
+  </div>
+  <span class="mock-label"><span class="mock-num">04 — </span>Voice Practice</span>
+</div>
+
+<!-- ========== 5. PROFILE ========== -->
+<div class="mock-col">
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="phone-home"></div>
+    <div class="scr light-bg profile">
+      <div class="ph">
+        <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Language Learner</h3>
+        <p>Level 7 Explorer</p>
+      </div>
+      <div class="card sr"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><span class="sinf">Total XP</span><span class="sv">1,250</span></div>
+      <div class="card sr"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6 2 12s10 10 10 10 10-6 10-10S17.52 2 12 2z"/></svg></div><span class="sinf">Current Streak</span><span class="sv">7 days</span></div>
+      <div class="card sr"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span class="sinf">Lessons Done</span><span class="sv">12</span></div>
+      <div class="card sr"><div class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div><span class="sinf">Words Learned</span><span class="sv">156</span></div>
+      <div class="card rng-c" style="margin-top:10px;">
+        <h4>Skill Overview</h4>
+        <svg class="rng-svg" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="90" fill="none" stroke="#E0C3FC" stroke-width="8" opacity=".3"/>
+          <circle cx="100" cy="100" r="90" fill="none" stroke="url(#g1p)" stroke-width="8" stroke-linecap="round" stroke-dasharray="396" stroke-dashoffset="119" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="#D1A8F0" stroke-width="8" opacity=".2"/>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="url(#g2p)" stroke-width="8" stroke-linecap="round" stroke-dasharray="334" stroke-dashoffset="50" transform="rotate(-90 100 100)"/>
+          <circle cx="100" cy="100" r="62" fill="none" stroke="#C490E8" stroke-width="8" opacity=".2"/>
+          <circle cx="100" cy="100" r="62" fill="none" stroke="url(#g3p)" stroke-width="8" stroke-linecap="round" stroke-dasharray="272" stroke-dashoffset="109" transform="rotate(-90 100 100)"/>
+          <text x="100" y="100" text-anchor="middle" font-family="Poppins" font-size="18" font-weight="700" fill="#6A11CB">Lv.7</text>
+          <defs>
+            <linearGradient id="g1p"><stop offset="0%" stop-color="#6A11CB"/><stop offset="100%" stop-color="#9B59E0"/></linearGradient>
+            <linearGradient id="g2p"><stop offset="0%" stop-color="#7B2FDB"/><stop offset="100%" stop-color="#AB6FEF"/></linearGradient>
+            <linearGradient id="g3p"><stop offset="0%" stop-color="#8E44EC"/><stop offset="100%" stop-color="#BE8AF5"/></linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div style="height:56px"></div>
+      <div class="bnav">
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Home</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/></svg><span>Voice</span></div>
+        <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>Chat</span></div>
+        <div class="ni act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></div>
+      </div>
+    </div>
+  </div>
+  <span class="mock-label"><span class="mock-num">05 — </span>Profile</span>
+</div>
+
+</div>
+
+<div class="top-flags">
+  <div class="tf"><img src="https://flagcdn.com/w80/us.png" alt="EN"><span>EN</span></div>
+  <div class="tf"><img src="https://flagcdn.com/w80/de.png" alt="DE"><span>DE</span></div>
+  <div class="tf"><img src="https://flagcdn.com/w80/fr.png" alt="FR"><span>FR</span></div>
+  <div class="tf"><img src="https://flagcdn.com/w80/es.png" alt="ES"><span>ES</span></div>
+  <div class="tf"><img src="https://flagcdn.com/w80/it.png" alt="IT"><span>IT</span></div>
+</div>
+
+</body>
+</html>
