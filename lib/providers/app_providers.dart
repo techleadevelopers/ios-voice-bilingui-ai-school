@@ -104,7 +104,7 @@ class ChatMessagesNotifier extends StateNotifier<List<ChatMessage>> {
       : super([
           ChatMessage(
             id: '0',
-            text: 'Hello! I\'m your AI language tutor. How can I help you practice today? 🎓',
+            text: 'Hello! I\'m your AI language tutor. How can I help you practice today? ??',
             isUser: false,
             timestamp: DateTime.now(),
           ),
