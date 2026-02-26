@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 final userStatsProvider = StateNotifierProvider<UserStatsNotifier, UserStats>(
   (ref) => UserStatsNotifier(),
 );
-
 class UserStatsNotifier extends StateNotifier<UserStats> {
   UserStatsNotifier() : super(const UserStats());
 
